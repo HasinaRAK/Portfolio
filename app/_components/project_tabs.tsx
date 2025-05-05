@@ -10,39 +10,55 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
-type Project = {
+type project = {
   id: number;
   name: string;
   category: string;
   description: string;
+  codeSrc?: string;
+  videoSrc?: string;
 };
 
-const projects: Project[] = [
+const projects: project[] = [
   {
     id: 1,
-    name: "Portfolio Website",
+    name: "Mon Portfolio",
     category: "Web",
-    description: "A portfolio website to showcase my work",
+    description: "Mon portfolio personnel pour présenter mes projets",
+    codeSrc: "https://github.com/HasinaRAK/Portfolio.git",
+    videoSrc: "/video_demo/demo-portfolio.mp4",
   },
   {
     id: 2,
     name: "Atero livraison",
     category: "Mobile",
-    description: "A mobile app for delivery services",
+    description: "Application de livraison pour Atero",
   },
   {
     id: 3,
     name: "R&C Royal Design",
     category: "Web",
-    description: "A web application for a design company",
+    description: "Site e-commerce pour R&C Royal Design",
   },
 ];
 
 const categories = ["Tous", "Web", "Mobile"];
 
 export default function _ProjectTabs() {
-  // const [activeCategory, setActiveCategory] = useState("Tous");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+
+  const handleOpenModal = (videoSrc: string) => {
+    setSelectedVideo(videoSrc);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedVideo(null);
+    setIsModalOpen(false);
+  };
 
   const filteredProjects = (category: string) => {
     return category === "Tous"
@@ -50,7 +66,7 @@ export default function _ProjectTabs() {
       : projects.filter((project) => project.category === category);
   };
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden" id="projets">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src="/video_animate/bg_project.mp4"
@@ -59,8 +75,7 @@ export default function _ProjectTabs() {
         muted
       ></video>
       <motion.div
-        id="projets"
-        className="relative z-10 p-6 h-full flex flex-col justify-center gap-6"
+        className="relative p-6 h-full flex flex-col justify-center gap-6"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
@@ -75,7 +90,7 @@ export default function _ProjectTabs() {
               <TabsTrigger
                 key={category}
                 value={category}
-                className="w-full md:w-auto md:mr-2 text-center text-white sele:text-gray-700 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 ease-in-out"
+                className="w-full md:w-auto md:mr-2 text-center text-white aria-selected:text-gray-700 bg-gray-800 hover:bg-gray-700 transition-colors duration-300 ease-in-out"
               >
                 {category}
               </TabsTrigger>
@@ -93,8 +108,23 @@ export default function _ProjectTabs() {
                       </CardHeader>
                       <CardContent>{project.description}</CardContent>
                       <CardFooter className="flex justify-between">
-                        <Button variant="outline">View Code</Button>
-                        <Button variant="outline">View Demo</Button>
+                        <Button variant="outline">
+                          <a
+                            href={project.codeSrc}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Voir le code
+                          </a>
+                        </Button>
+                        <Button
+                          variant="outline"
+                          onClick={() =>
+                            handleOpenModal(project.videoSrc || "")
+                          }
+                        >
+                          Voir un démo
+                        </Button>
                       </CardFooter>
                     </Card>
                   </div>
@@ -104,6 +134,26 @@ export default function _ProjectTabs() {
           ))}
         </Tabs>
       </motion.div>
+      {isModalOpen && selectedVideo && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div
+            className="bg-white rounded-lg p-4 shadow-lg z-10"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <video
+              src={selectedVideo}
+              controls
+              className="w-full max-w-3xl rounded"
+            ></video>
+            <button
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+              onClick={handleCloseModal}
+            >
+              Fermer
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

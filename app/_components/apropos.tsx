@@ -58,7 +58,7 @@ const _Apropos = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden">
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src="/video_animate/bg_apropos.mp4"
         autoPlay
         loop
@@ -68,7 +68,7 @@ const _Apropos = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
-        className="relative z-10 p-6 h-full flex flex-col gap-6 justify-center items-center"
+        className="relative p-6 h-full flex flex-col gap-6 justify-center items-center"
         transition={{ duration: 0.6 }}
         id="apropos"
       >

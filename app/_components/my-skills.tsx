@@ -57,7 +57,7 @@ const _MySkills = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden" id="skills">
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src="/video_animate/bg_skills.mp4"
         autoPlay
         loop
@@ -68,7 +68,7 @@ const _MySkills = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.6 }}
-        className="relative z-10 p-6 h-full flex flex-col justify-center gap-6"
+        className="relative p-6 h-full flex flex-col justify-center gap-6"
       >
         <h1 className="text-3xl font-bold text-center text-white mb-8">
           Compétences

@@ -47,7 +47,7 @@ const ProfilePhoto = ({
           onClick={handleCloseModal}
         >
           <div
-            className="bg-white rounded-lg p-4"
+            className="bg-white rounded-lg p-4 shadow-lg z-10"
             onClick={(e) => e.stopPropagation()}
           >
             <Image src={pic} alt={alt} width={size * 4} height={size * 4} />
