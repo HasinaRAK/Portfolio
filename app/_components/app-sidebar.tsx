@@ -35,7 +35,12 @@ import dynamic from "next/dynamic";
 //import { Link as ScrollLink } from "react-scroll";
 import ProfilePhoto from "./hero-forms";
 import { SkillTechnoLang } from "./skill-techno-lang";
-import { RiJavascriptFill, RiReactjsFill, RiNextjsFill } from "react-icons/ri";
+import {
+  RiJavascriptFill,
+  RiReactjsFill,
+  RiNextjsFill,
+  RiPhpFill,
+} from "react-icons/ri";
 import { GrMysql } from "react-icons/gr";
 import { TbBrandReactNative } from "react-icons/tb";
 import {
@@ -45,6 +50,8 @@ import {
   SiPostgresql,
   SiMongodb,
   SiTailwindcss,
+  SiLaravel,
+  SiNodedotjs,
 } from "react-icons/si";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -97,6 +104,11 @@ const skillLanguages = [
     niveau: 70,
   },
   {
+    title: "PHP",
+    icon: RiPhpFill,
+    niveau: 70,
+  },
+  {
     title: "TypeScript",
     icon: SiTypescript,
     niveau: 30,
@@ -127,7 +139,17 @@ const skillFrameworks = [
   {
     title: "Django",
     icon: SiDjango,
-    niveau: 30,
+    niveau: 50,
+  },
+  {
+    title: "Node.JS",
+    icon: SiNodedotjs,
+    niveau: 50,
+  },
+  {
+    title: "Laravel",
+    icon: SiLaravel,
+    niveau: 50,
   },
   {
     title: "TailwindCSS",

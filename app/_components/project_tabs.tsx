@@ -27,7 +27,7 @@ const projects: project[] = [
     name: "Mon Portfolio",
     category: "Web",
     description: "Mon portfolio personnel pour présenter mes projets",
-    codeSrc: "https://github.com/HasinaRAK/Portfolio.git",
+    codeSrc: "https://github.com/HasinaRAK/Portfolio/tree/master",
     videoSrc: "/video_demo/demo-portfolio.mp4",
   },
   {
@@ -40,7 +40,15 @@ const projects: project[] = [
     id: 3,
     name: "R&C Royal Design",
     category: "Web",
-    description: "Site e-commerce pour R&C Royal Design",
+    description: "Site vitrine moderne pour R&C Royal Design",
+    videoSrc: "/video_demo/demo_rc_royaldesign.mp4",
+  },
+  {
+    id: 4,
+    name: "R&C Construct",
+    category: "Web",
+    description: "Site application pour la facturation de R&C Construct",
+    videoSrc: "/video_demo/demo-rc_construct.mp4",
   },
 ];
 
@@ -144,6 +152,7 @@ export default function _ProjectTabs() {
               src={selectedVideo}
               controls
               className="w-full max-w-3xl rounded"
+              autoPlay
             ></video>
             <button
               className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"

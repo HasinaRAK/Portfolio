@@ -40,9 +40,9 @@ export default function _Accueil() {
           backgroundImage: `url(${banner.src})`,
           backgroundSize: "cover",
         }}
-        className="flex items-center justify-center min-h-screen bg-cover bg-center h-full"
+        className="flex items-center justify-center min-h-screen bg-cover bg-center max-h-screen"
       >
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center">
           <h1
             ref={textRef}
             className="text-4xl font-bold text-white text-center"
@@ -50,7 +50,7 @@ export default function _Accueil() {
             Je suis Hasina RAKOTOARISOA, Bienvenue sur mon Portfolio
           </h1>
           <p className="mt-4 text-2xl text-green-600 text-center">
-            Un développeur passionné par la technologie.
+            Un développeur passionné.
           </p>
         </div>
       </main>

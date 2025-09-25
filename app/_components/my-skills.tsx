@@ -15,6 +15,7 @@ const skills = [
   { name: "TailwindCSS", tech: "front-end", logo: "/icons/tailwindcss.svg" },
   { name: "NodeJS", tech: "back-end", logo: "/icons/nodejs.svg" },
   { name: "Django", tech: "back-end", logo: "/icons/django-icon.svg" },
+  { name: "Laravel", tech: "back-end", logo: "/icons/laravel.svg" },
   { name: "Postgres", tech: "Base de données", logo: "/icons/postgresql.svg" },
   { name: "MongoDB", tech: "Base de données", logo: "/icons/mongodb.svg" },
   { name: "MySQL", tech: "Base de données", logo: "/icons/mysql.svg" },

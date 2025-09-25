@@ -1,5 +1,5 @@
 import Image from "next/image";
-import pic from "@/public/images/pic_me.jpg";
+import pic from "@/public/images/pic_me.png";
 import { useState } from "react";
 
 interface ProfilePhotoProps {
